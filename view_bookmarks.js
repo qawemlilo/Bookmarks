@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ;(function (g_url) {
 
 var HACKER_BOOKMARKS = { 
@@ -412,4 +411,3 @@ var HACKER_BOOKMARKS = {
   
   HACKER_BOOKMARKS.getBookmarks("https://spreadsheets.google.com/pub?hl=en&hl=en&key=0AqJ6uSJSd-kSdDlIelBIWFB2RnRWWnlxbzJQWndyZlE&single=true&gid=0&output=csv", "ghshu_897742");
 })();
->>>>>>> 2acad3de7a427a061e581d94871e1c8fc970a49c
