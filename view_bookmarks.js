@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ;(function (g_url) {
 
 var HACKER_BOOKMARKS = { 
