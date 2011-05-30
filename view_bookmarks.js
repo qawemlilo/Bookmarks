@@ -99,8 +99,9 @@ var HACKER_BOOKMARKS = {
 
         for (i = 1; i <  jsonData.length; i += 1) {  
             day = this.whichDay(jsonData[i]['col0']);
-	        if(!(!!temp[day])) temp[day] = [];
-			temp[day].push({'link': jsonData[i]['col1'], 'title': jsonData[i]['col2']});
+	        if (!(!!temp[day])) temp[day] = [];
+			if (jsonData[i]['col1'] && jsonData[i]['col2']) 
+			    temp[day].push({'link': jsonData[i]['col1'], 'title': jsonData[i]['col2']});
 	    }
 		
 	 htmloutput += '<a style="color:red; padding-right: 5px; text-align: right; text-decoration:none; width: 100%; font-size: 18px" href="javascript: (function(){try{document.body.removeChild(document.getElementById(\'hacker_bookmark_panel\'));} catch(error){}})();">[x] </a>';
