@@ -1,3 +1,11 @@
+/*
+****************************************************
+COPYRIGHT © 2011 Raging Flame
+AUTHOR: Qawelesizwe Mlilo
+Email: qawemlilo@gmail.com
+****************************************************
+*/
+
 (function (g_url) {
 
 var HACKER_BOOKMARKS = { 
@@ -12,58 +20,62 @@ var HACKER_BOOKMARKS = {
         timeSince = dateFunc.getTime() - d, inSeconds = timeSince / 1000,
         inMinutes = timeSince / 1000 / 60, inHours = timeSince / 1000 / 60 / 60,
         inDays = timeSince / 1000 / 60 / 60 / 24, inMonths = timeSince / 1000 / 60 / 60 / 24 / 30,
-        inYears = timeSince / 1000 / 60 / 60 / 24 / 365, myTime;
+        inYears = timeSince / 1000 / 60 / 60 / 24 / 365, relativeTime, holder;
      
         // in seconds
         if (Math.round(inSeconds) === 1) {
-            myTime = "second_1";
+            relativeTime = "second_1";
         }
         else if (inMinutes < 1) {
-            myTime = "seconds_" + Math.floor(inSeconds);
+            relativeTime = "seconds_" + Math.floor(inSeconds);
         }
      
         // in minutes
         else if (Math.round(inMinutes) === 1) {
-            myTime = "minute_1";
+            relativeTime = "minute_1";
         }
         else if (inHours < 1) {
-            myTime =  "minutes_" + Math.floor(inMinutes);
+            holder = (Math.round(inMinutes) === 60) ? 59 : Math.round(inMinutes);
+            relativeTime =  "minutes_" + holder;
         }
      
         // in hours
         else if (Math.round(inHours) === 1) {
-            myTime = "hour_1";
+            relativeTime = "hour_1";
         }
         else if (inDays < 1) {
-            myTime =  "hours_" + Math.floor(inHours);
+            holder = (Math.round(inHours) === 24) ? 23 : Math.round(inHours);
+            relativeTime =  "hours_" + holder;
         } 
      
         // in days
         else if (Math.round(inDays) === 1) {
-            myTime = "day_1";
+            relativeTime = "day_1";
         }
         else if (inMonths < 1) {
-            myTime =  "days_" + Math.floor(inDays);
+            holder = (Math.round(inDays) === 30) ? 29 : Math.round(inDays);
+            relativeTime =  "days_" + holder;
         }
     
         // in months
         else if (Math.round(inMonths) === 1) {
-            myTime = "month_1";
+            relativeTime = "month_1";
         }
         else if (inYears < 1) {
-            myTime = "months_" + Math.floor(inDays);
+            holder = (Math.round(inMonths) === 12) ? 11 : Math.round(inMonths);
+            relativeTime = "months_" + holder;
         }
      
         // in years
         else if (Math.round(inYears) === 1) {
-            myTime = "year_1";
+            relativeTime = "year_1";
         }
     
         else {
-            myTime = "years_" +Math.floor(inYears);
+            relativeTime = "years_" +Math.round(inYears);
         }
 	
-	    return myTime;
+	    return relativeTime;
     },
 	
 	// creates a JSONP YQL query from a url which returns results in JSON format
@@ -86,7 +98,7 @@ var HACKER_BOOKMARKS = {
 	    var htmloutput = "", day, i, z, objKey, temp = {}, temp_str, cont_str = '', mystr, len;
 
         for (i = 1; i <  jsonData.length; i += 1) {  
-            day = HACKER_BOOKMARKS.whichDay(jsonData[i]['col0']);
+            day = this.whichDay(jsonData[i]['col0']);
 	        if(!(!!temp[day])) temp[day] = [];
 			temp[day].push({'link': jsonData[i]['col1'], 'title': jsonData[i]['col2']});
 	    }

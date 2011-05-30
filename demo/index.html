@@ -1,0 +1,278 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>A hacker's bookmarks, my 2 day project</title>
+    <link href="http://www.rflab.co.za/css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="http://www.rflab.co.za/images/favicon.ico" />
+<style type="text/css">
+#appMessage, #linkBox, #linkBox2 {
+	width:100%;
+	top:0;
+	left:0;
+	position:fixed;
+	background-color: #131211;
+	padding:28px;
+	text-align:center;
+	color:#fff;
+	z-index: 1000;
+	display: none;
+}
+
+
+.bookmarkButton {
+	background-color: #F47A20;
+	border:1px solid #0000;
+	color:#FFFFFF;
+	font-weight:bold;
+	padding:6px;
+	font-size:11px;
+	cursor:move;
+	margin-right: 5px;
+	-moz-border-radius:12px;
+	-webkit-border-radius:12px;
+	border-radius:12px;
+}
+
+a.bookmarkButton:hover{
+	text-decoration:none;
+}
+</style>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11789217-14']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+
+<body>
+    <div id="main">
+         <div id="appMessage">
+		 <img src="http://www.rflab.co.za/images/arrow.png" style="height: 60px; margin: 0px 5px -20px 0px;">
+		     <a class="bookmarkButton" href="javascript:(function(){if(typeof googleFormActionUrl_367342iurw34!=='undefined') return;var jsScript=document.createElement('script');window.googleFormActionUrl_367342iurw34='https://spreadsheets.google.com/formResponse?formkey=dDlIelBIWFB2RnRWWnlxbzJQWndyZlE6MQ';jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src', 'http://www.rflab.co.za/scripts/add_bookmarks.js');document.getElementsByTagName('head')[0].appendChild(jsScript);})();">Bookmark this!
+			 </a>
+		 
+             <a class="bookmarkButton" href="javascript:(function(){if(typeof HACKER_BOOKMARKS === 'object' && document.getElementById('hacker_bookmark_panel')) return; if(typeof HACKER_BOOKMARKS === 'object' && !document.getElementById('hacker_bookmark_panel')){ghshu_897742(); return;}window.googledocUrl_367342iurw34='https://spreadsheets.google.com/pub?hl=en&hl=en&key=0AqJ6uSJSd-kSdDlIelBIWFB2RnRWWnlxbzJQWndyZlE&single=true&gid=0&output=csv';var jsScript=document.createElement('script'); jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src', 'http://www.rflab.co.za/scripts/view_bookmarks.js');document.getElementsByTagName('head')[0].appendChild(jsScript) || document.body.appendChild(jsScript);})();">View Bookmarks
+			 </a>
+			 
+             Drag these buttons to the bookmarks bar (right-click and Add to Favorites if using I.E) 
+		     <a style="color:red; margin-left: 40px; color:red; font-size: 20px; text-decoration:none;" href="" onclick="$('#appMessage').hide(); return false;">[x]</a>
+        </div>
+    	<div class="container">
+        
+        	<div id="header">
+            
+            	<ul id="menu">
+                	<li><a href="http://www.rflab.co.za/">Home</a></li>
+                	<li><a href="http://www.rflab.co.za/services.php">Services</a></li>
+                	<li><a href="http://www.rflab.co.za/software.html" class="active">Free Products</a></li>
+                	<li><a href="http://www.rflab.co.za/contact.php">Contact Us</a></li>
+                </ul>
+                <a href="http://www.rflab.co.za/" title="Home">
+            	<div id="logo">
+                	<h1>Raging Flame</h1>
+                    <small>Raging Flame</small>
+                </div>
+               </a>
+            </div>
+            
+            
+            <div id="block_content">
+            
+            	<div id="content_area" class="block">
+                    <div class="block_inside">
+                        <h1>A hacker's bookmarks, my 2 day project</h1> 
+                        <p>Feel free to go straight to the demo and checkout my bookmarks.</p>
+						<p style="text-align:center;"><a href="#" id="demo_button" class="button blue">Demo</a> &nbsp; <a href="http://www.rflab.co.za/downloads/hacker-bookmarks.zip" class="button blue">Download</a></p>						
+						<h4>The situation</h4>	
+						<p>Browser bookmarks are an awesome feature that help you manage all web pages that you would like to revisit in future.
+I have a 9 to 5 job where during the day I'm too busy to read all the interesting web pages that I visit, so I just bookmark them.</p>
+
+						<h4>The problem</h4>
+						<p>When I get home, where I have free time to surf the internet, I cannot access all those awesome hacker stories that I bookmarked during the day.</p>						
+                        <h4>Possible solution</h4>					   
+                        <p>Googling the web brought up a number of bookmarking services like Netvouz, Ma.gnolia, and Del.icio.us but none of them was quite right for my simple need, "just to carry my bookmarks" wherever I go.</p><br />
+						
+					   <p>After much deliberation I finally decided that if I needed a tailored bookmarking service, I was going to build it myself (troubles of being a self-proclaimed hacker) - here is my solution.</p>
+						
+						<h4>The Application</h4>
+						<p>A hacker's bookmarks is an application written in 'vanilla' JavaScript and stores all bookmarks in a flat file database - a Google docs spreadsheet. To retrieve bookmarks from the database (Google docs spreadsheet), the application creates a YQL query that returns data in JSON format.</p>
+		
+                        <h4>Step 1: Create a Google docs form</h4>
+						<img alt="Google docs home" title="Google docs home" src="http://www.rflab.co.za/images/create_form.jpg" style="float: left; margin: 10px; vertical-align: top;"/>
+						<p>Create a form in google docs with two text fields, one for the bookmark url and the other for the bookmark title, respectively.</p> 
+						<p>Save your form and click the link at the bottom of the page to view the newly created form.  <img alt="Newly created form" title="Newly created form" src="http://www.rflab.co.za/images/form_link.jpg" style="float: right; margin-right: 5px;"/>
+						</p>
+
+                        <p style="clear: both;">&nbsp;</p>
+                        
+						<h4>Step 2: Generate a link for bookmarking</h4>
+                        <img alt="Google docs form" title="Google docs form" src="http://www.rflab.co.za/images/copy_action.jpg" style="margin: 5px;"/>
+                        <p>Open the source file of the form and copy the URI in the action attribute <br />The copied URI looks like the one below :</p>
+                        <pre>https://spreadsheets.google.com/formResponse?formkey=dFhsQlBxQmFsSnNvaVpQS3doSzM2MlE6MQ<span style="color:red">&amp;ifq</span></pre>
+                        <p>Remove the <strong>ifq</strong> field from the URI so that you are only left with the part similar to the one shown below :</p>
+                        <pre>https://spreadsheets.google.com/formResponse?formkey=dFhsQlBxQmFsSnNvaVpQS3doSzM2MlE6MQ</pre>
+                        <p>Paste your edited URI below to generate a bookmarking link and drag it to your bookmarks</p>
+                        <p style="clear: both; width: 580px; padding: 10px; background-color: #000000;">
+						    <input type="text" name="send_input" id="send_input" value="Paste here" size="70" /> <button id="send_input_b">Create Link</button>
+						</p>
+						
+						<h4>Step 3: Generate a link for viewing bookmarks</h4>
+						<p>Go back to the google docs home page and open the spreadsheet for the form. This is your flat file database, all form input is stored here.</p>
+						<img alt="Database" title="Database" src="http://www.rflab.co.za/images/database.jpg" style="margin: 10px;"/>
+						<p>Now you need to configure your database (Google docs spreadsheet).</p>
+						<p>Firsly change file permissions to <strong>Public on the web</strong> and then on the top-right corner of the page click on the <strong>Share</strong> arrow.
+						</p>
+						<p>A list of options will drop down, select <strong>Publish as a web page</strong>. A light-box will then pop-up, on the <strong>Get a link to the published data</strong> section click the first options menu and select <strong>CSV (comma-separated values)</strong>. Copy the link that is generated in the textbox and paste it below: 
+						</p> 
+						<p style="clear: both; width: 580px; padding: 10px; background-color: #000000;">
+						    <input type="text" name="view_input" id="view_input" value="Paste here" size="70" /> <button id="view_input_b">Create Link</button>
+						</p>
+                        
+						<h4>The Final Look</h4>
+						<img alt="A hacker's Bookmarks" title="A hacker's Bookmarks" src="http://www.rflab.co.za/images/complete.jpg" style="margin: 10px;"/>                     
+
+                    </div>
+					
+                 </div>
+                 <div id="sidebar">
+                 	<div class="block_inside">
+                        
+                        <p style="text-align:center;"><a target="_blank" href="https://github.com/qawemlilo/Bookmarks" onClick="_gaq.push(['_trackEvent','Fork', 'Clicked']);" class="button blue">Fork it on Github</a></p><br />
+						 <p>
+<!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style">
+<a href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4d2b12a4103cfc5c" class="addthis_button_compact">Share</a>
+<span class="addthis_separator">|</span>
+<a class="addthis_button_preferred_1"></a>
+<a class="addthis_button_preferred_2"></a>
+<a class="addthis_button_preferred_3"></a>
+<a class="addthis_button_preferred_4"></a>
+</div>
+<!-- AddThis Button END -->					 
+						 </p>
+                 	
+                    </div>
+                 </div>
+                 
+                 <!-- a Clearing DIV to clear the DIV's because overflow:auto doesn't work here -->
+                 <div style="clear:both"></div>
+                   
+            </div>
+            
+            
+            
+            </div>
+            
+            
+        </div>
+    </div>
+
+    <div id="footer">
+    	<div class="container">
+        
+        	<div class="footer_column long">
+                <h3>About Us</h3>
+                <p>Raging Flame Web Solutions is a web development laboratory mainly focused on creating web applications that make using the browser an enjoyable and addictive experience. We are geeks and love hacking.</p>
+			</div>
+
+	        <div class="footer_column">
+                <h3>Free Downloads</h3>
+				<ul>
+                    <li><a href="#">Joomla! Components</a></li>
+            		<li><a href="http://www.rflab.co.za/plugins/content-slider.html">JQuery Plugins</a></li>
+            		<li><a href="http://www.rflab.co.za/software.php">Web Apps</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer_column">
+                <h3>Social Web</h3>
+				<ul>
+            		<li><a target="blank" href="https://github.com/qawemlilo/">Github</a></li>
+					<li><a target="blank" href="http://twitter.com/ragingflameblog">Twitter</a></li>
+					<li><a href="#">Facebook</a></li>
+                </ul>
+            </div>
+        
+        </div>
+    </div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    
+	$('#demo_button').click(function() {
+        $('#appMessage').slideDown();
+	});
+
+    $('#send_input').focus(function() {
+	   $('#send_input').val('');
+    }).blur(function() {
+	    if ($('#send_input').val() === '') $('#send_input').val('Paste here');
+    });	
+	
+    $('#send_input_b').click(function() {		
+	    var link = $('#send_input').val(), txt, lbox;
+		
+		if (link === 'Paste here') return;
+		if ($('#linkBox2')) $('#linkBox2').remove();
+		
+        txt = "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof googleFormActionUrl_367342iurw34!=='undefined') return;var jsScript=document.createElement('script');window.googleFormActionUrl_367342iurw34='"+link+"';jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src', 'http://www.rflab.co.za/scripts/add_bookmarks_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript);})();\">Bookmarks this!</a>";
+        txt += "Drag this buttons to your bookmarks bar (right-click and Add to Favorites if using I.E)" 
+        txt += '<a style="color:red; margin-left: 40px; color:red; font-size: 20px; text-decoration:none;" href="" onclick="$(\'#linkBox2\').remove(); return false;">[x]</a>';
+
+        lbox = $('<div>', {
+            id : 'linkBox2',
+	        html : txt  
+        });
+		
+       lbox.appendTo('#main');
+	   $('#linkBox2').slideDown();
+    });
+	
+	
+    $('#view_input').focus(function() {
+		    $('#view_input').val(' ');
+    }).blur(function() {
+        if ($('#view_input').val() == ' ') $('#view_input').val('Paste here');
+    });
+		
+		
+    $('#view_input_b').click(function() {
+	    var link = $('#view_input').val(), txt, lbox;
+		
+		if (link === 'Paste here') return;
+		if ($('#linkBox')) $('#linkBox').remove();
+
+        txt = "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof HACKER_BOOKMARKS === 'object' && document.getElementById('hacker_bookmark_panel')) return; if(typeof HACKER_BOOKMARKS === 'object' && !document.getElementById('hacker_bookmark_panel')){ghshu_897742(); return;} window.googledocUrl_367342iurw34='"+link+"'; var jsScript=document.createElement('script'); jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src','http://www.rflab.co.za/scripts/view_bookmarks_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript) || document.body.appendChild(jsScript);})();\">View Bookmarks</a>";
+   
+        txt += "Drag this button to your bookmarks bar (right-click and Add to Favorites if using I.E)" 
+        txt += '<a style="color:red; margin-left: 40px; color:red; font-size: 20px; text-decoration:none;" href="" onclick="$(\'#linkBox\').remove(); return false;">[x]</a>';
+
+        lbox = $('<div>', {
+            id : 'linkBox',
+	        html : txt 
+        });
+		
+       lbox.appendTo('#main');
+	   $('#linkBox').slideDown();
+    });
+});
+function include_js(url) {  
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = url;
+    document.getElementsByTagName("head")[0].appendChild(script);
+}
+
+include_js('http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4d2b12a4103cfc5c');
+</script>
+</body>
+</html>
