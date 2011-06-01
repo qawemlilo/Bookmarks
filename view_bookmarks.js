@@ -99,9 +99,12 @@ var HACKER_BOOKMARKS = {
 
         for (i = 1; i <  jsonData.length; i += 1) {  
             day = this.whichDay(jsonData[i]['col0']);
-	        if (!(!!temp[day])) temp[day] = [];
-			if (jsonData[i]['col1'] && jsonData[i]['col2']) 
+	        
+			if (typeof jsonData[i]['col1'] !== 'undefined' && typeof jsonData[i]['col2'] !== 'undefined') { 
+			    if (!(!!temp[day])) 
+				    temp[day] = [];
 			    temp[day].push({'link': jsonData[i]['col1'], 'title': jsonData[i]['col2']});
+			}
 	    }
 		
 	 htmloutput += '<a style="color:red; padding-right: 5px; text-align: right; text-decoration:none; width: 100%; font-size: 18px" href="javascript: (function(){try{document.body.removeChild(document.getElementById(\'hacker_bookmark_panel\'));} catch(error){}})();">[x] </a>';
@@ -190,20 +193,20 @@ var HACKER_BOOKMARKS = {
 };
 
  // password-like call back function to avoid over-writing of any functions
- window.callBack_89cvc7rfr742 = function(o) {	
-      var elem = document.getElementById('hacker_bookmark_panel'), bmHTML;
-	  
-	  if (!elem) {
-	      HACKER_BOOKMARKS.createPanel('hacker_bookmark_panel');
-		  elem = document.getElementById('hacker_bookmark_panel');
-	  }
-	  
-      if (!o) {
-	      elem.innerHTML = HACKER_BOOKMARKS.html;
-		  return;
-	  }  
+ window.callBack_89cvc7rfr742 = function (o) {	
+      var elem = document.getElementById('hacker_bookmark_panel'), bmHTML;  
 	  
       if (o.query.count > 0) {
+	      if (!elem) {
+	          HACKER_BOOKMARKS.createPanel('hacker_bookmark_panel');
+		      elem = document.getElementById('hacker_bookmark_panel');
+	      }
+	  
+          if (!o) {
+	          elem.innerHTML = HACKER_BOOKMARKS.html;
+		      return;
+	      }
+		  
 		  bmHTML = HACKER_BOOKMARKS.generateHTML(o.query.results.row);
           elem.innerHTML = bmHTML;
 	  }
