@@ -96,6 +96,12 @@ a:hover {
   border-bottom: none;
 }
 
+a:focus {
+  border: 0px;
+  outline: none;
+  text-decoration: none;
+}
+
 h1 a {
   color: #ff6600;
   text-decoration: none;
