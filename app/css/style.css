@@ -141,7 +141,7 @@ h1 {
   clear: both;
 }
 
-#msg {
+#appMsg {
   width:100%;
   top:0;
   left:0;
@@ -166,6 +166,24 @@ h1 {
   border:1px solid #000;
   -moz-border-radius: 4px; 
   width: 330px;
+}
+
+.bookmarkButton {
+	background-color: #000;
+	border:1px solid #0000;
+	color:#fff;
+	font-weight:bold;
+	padding:6px;
+	font-size:11px;
+	cursor:move;
+	margin-right: 5px;
+	-moz-border-radius:12px;
+	-webkit-border-radius:12px;
+	border-radius:12px;
+}
+
+.bookmarkButton:hover {
+	color: #ff6600;
 }
 
 #formDiv {

@@ -15,76 +15,122 @@
 	  }
     </style>
   <![endif]--> 
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11789217-15']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' === document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </head>	
 <body>
 <div id="container">
-    <a href="https://github.com/qawemlilo/Bookmarks" target="_blank" style="position: absolute; top:0; right: 0;"><img src="images/fork.png" /></a>
-	
+    <a href="https://github.com/qawemlilo/Bookmarks" target="_blank" style="position: absolute; top:0; right: 0;" onclick="_gaq.push(['_trackEvent', 'Fork', 'Clicked']); return true"><img src="images/fork.png" /></a>
+	<g:plusone size="standard" count="true"></g:plusone>
     <h1>
       <a href="http://apps.rflab.co.za/hackerbookmarks/" title="A Hacker's bookmarks">A Hacker's bookmarks</a>
     </h1>
 	
     <div id="about">
-      <p style="margin-top: 20px;">Save your bookmarks to your google account and retrieve them from anywhere. It only takes a few steps, <a href="https://docs.google.com/present/view?id=dct7nsj8_7f6qjj5hh&revision=_latest&start=0&theme=blank&cwj=true" id="various1" title="Getting started">GET STARTED</a>.</p>
+      <p style="margin-top: 20px;">Save your bookmarks to your google account and retrieve them from anywhere. It only takes a few steps, <a href="https://docs.google.com/present/view?id=dct7nsj8_7f6qjj5hh&revision=_latest&start=0&theme=blank&cwj=true" id="gettingStarted" title="Getting started">GET STARTED</a>.</p>
     </div>
 
 	<div id="formDiv">
       <form action="" method="POST"> 
         <fieldset>		
             <div style="width: 0 auto; padding:0px; margin-bottom: 5px;">
-              <label for="action">
+              <label for="email">
 			    Email
 			  </label>
-			  <input onclick="this.value='';" name="action" class="txt" type="text"> 
+			  <input onclick="this.value='';" id="email" name="email" class="txt" type="text"> 
 			</div>
 			
             <div style="width: 0 auto; padding:0px; margin-bottom: 5px;">
-              <label for="action">
-			    Form action url <a id="various3" href="https://docs.google.com/present/view?id=dct7nsj8_42dc47t2d8&revision=_latest&start=0&theme=blank&cwj=true" title="How to get the form action url">(?)</a>
+              <label for="formurl">
+			    Form action url <a id="formActionUrl" href="https://docs.google.com/present/view?id=dct7nsj8_42dc47t2d8&revision=_latest&start=0&theme=blank&cwj=true" title="How to get the form action url">(?)</a>
 			  </label>
-			  <input onclick="this.value='';" name="action" class="txt" type="text"> 
+			  <input onclick="this.value='';" id="formurl" name="formurl" class="txt" type="text"> 
 			</div>
 			
             <div style="width: 0 auto; padding:0px; margin-bottom: 5px;">
-              <label for="spreadsheet">
-			    Spreadsheet csv url <a id="various4" href="https://docs.google.com/present/view?id=dct7nsj8_43f45hjjdc&revision=_latest&start=0&theme=blank&cwj=true">(?)</a>
+              <label for="csvurl">
+			    Spreadsheet csv url <a id="spreadsheetUrl" href="https://docs.google.com/present/view?id=dct7nsj8_43f45hjjdc&revision=_latest&start=0&theme=blank&cwj=true">(?)</a>
 			  </label>
-			  <input onclick="this.value=''; name="spreadsheet" class="txt" type="text">  
+			  <input onclick="this.value='';" name="csvurl" id="csvurl" class="txt" type="text">  
             </div>
 			
-            <input value="Generate Links" name="subscribe" class="button gray" type="submit" /> 
+            <input value="Generate Links" id="create" name="create" class="button gray" type="submit" /> 
         </fieldset>	
       </form> 
     </div> 
     
 	<div id="footer">
-	  <a href="bookmarks.html">My bookmarks</a> | <a href="">Shared bookmarks</a>  | <a href="mailto:qawemlilo@gmail.com">Contact Us</a> | <a target="_blank" href="http://www.rflab.co.za/plugins/hacker-bookmarks.html#comment-215820461">Comments</a><br />&copy; 2011 <a href="http://www.rflab.co.za/">Raging Flame</a> | <a href="http://twitter.com/ragingflameblog" target="_blank" >@ragingflameblog</a> | <a href="http://sam.zoy.org/wtfpl/" target="_blank">Licence</a>
+	  <a href="bookmarks.html" onclick="_gaq.push(['_trackEvent', 'navigationLinks', 'bookmarks', this.href]); return true;">My bookmarks</a> | <a target="_blank" href="http://www.rflab.co.za/plugins/hacker-bookmarks.html#comment-215820461" onclick="_gaq.push(['_trackEvent', 'navigationLinks', 'Comments', this.href]); return true">Comments</a> |  <a href="mailto:qawemlilo@gmail.com" onclick="_gaq.push(['_trackEvent', 'navigationLinks', 'Contact', this.href]); return true">Contact Us</a> | <a href="http://sam.zoy.org/wtfpl/" target="_blank" onclick="_gaq.push(['_trackEvent', 'navigationLinks', 'Licence', this.href]); return true;">Licence</a> <br />&copy; 2011 <a href="http://www.rflab.co.za/" onclick="_gaq.push(['_trackEvent', 'navigationLinks', 'Home', this.href]); return true">Raging Flame</a> | <a href="http://twitter.com/ragingflameblog" target="_blank" onclick="_gaq.push(['_trackEvent', 'navigationLinks', 'twitter', this.href]); return true">@ragingflameblog</a>
+
     </div>
 </div>
 
-<script type="text/javascript">
-var include_js = function (url, callback) { 
+<script type="text/javascript"> 
+window.onload = function() {
+var  error = !1,
+
+include_js = function (url, callback) { 
     var script = document.createElement("script");
     script.type = "text/javascript";
 	
-    if (script.readyState && callback) {  //IE
-        script.onreadystatechange = function(){
-            if (script.readyState == "loaded" || script.readyState == "complete"){
+    if (script.readyState && callback) {  
+        script.onreadystatechange = function () {
+            if (script.readyState === "loaded" || script.readyState === "complete"){
                 script.onreadystatechange = null;
                 callback();
             }
         };
-    } else if (callback) {  //Others
-        script.onload = function(){
+    } else if (callback) {
+        script.onload = function () {
             callback();
         };
     }
     script.src = url;
     document.getElementsByTagName("head")[0].appendChild(script);
-  },
+},
+
+
+isEmail = function (email) { 
+    var rgEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return !!email.match(rgEx);
+},
+
+
+isUrl = function (url) {
+    var url_match = /https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w/_\.]*(\?\S+)?)?)?/;
+    return url_match.test(url);
+},
+
   
-  displayMSG = function (a,b) {
-      var c = $("<div>",{id:"msg",html:a});
+saveEntry = function (data) {
+    var o = !1;
+	
+    if (window.XMLHttpRequest) 
+	    o = new XMLHttpRequest;
+    else 
+	    if (window.ActiveXObject) o = new ActiveXObject('Microsoft.XMLHTTP');
+   
+    if (o) {
+       o.open('GET', data);
+       o.onreadystatechange = function(){};
+       o.send(null)
+    }
+},
+
+
+displayMSG = function (a,b) {
+      var c = $("<div>",{id:"appMsg",html:a});
 	
 	  c.click(function () {
 	      $(this).fadeOut(function () {
@@ -93,25 +139,68 @@ var include_js = function (url, callback) {
 	  });
 	
 	  b ? setTimeout(function(){c.click()},b) : setTimeout(function(){c.click()},5000);
-	  c.hide().appendTo("body").slideDown()
-  };
-  
-  window.onload = function() {
-    include_js("http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js", function (){
+	  c.hide().appendTo('body').slideDown()
+},
+
+
+createLinks = function () {
+    $('#create').click(function (e) {
+        e.preventDefault();	
+	    var formurl = $('#formurl').val(), csvurl = $('#csvurl').val(), email = $('#email').val(), txt, lbox;
+		
+		if ($('#appMsg')) $('#appMsg').remove();
+		
+		if (!isUrl(formurl) || !isUrl(csvurl) || !isEmail(email)) {
+		    displayMSG("All fields require valid input!"); 
+            return;			
+		}
+		
+		formurl = formurl.substring(0, (formurl.length - 8));
+
+        txt =  "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof googleFormActionUrl_367342iurw34!=='undefined') return;var jsScript=document.createElement('script');window.googleFormActionUrl_367342iurw34='"+formurl+"';jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src', 'http://www.rflab.co.za/scripts/add_bookmarks_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript);})();\">Bookmarks this!</a>";
+		
+        txt += "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof HACKER_BOOKMARKS === 'object' && document.getElementById('hacker_bookmark_panel')) return; if(typeof HACKER_BOOKMARKS === 'object' && !document.getElementById('hacker_bookmark_panel')){ghshu_897742(); return;} window.googledocUrl_367342iurw34='"+csvurl+"'; var jsScript=document.createElement('script'); jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src','http://www.rflab.co.za/scripts/view_bookmarks_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript) || document.body.appendChild(jsScript);})();\">View Bookmarks</a>";
+	
+		if ($.browser.msie) txt += "Right-click on these buttons and select Add to Favorites";
+        else txt += "Drag these buttons to your bookmarks bar"; 
+
+        txt += '<a style="margin-left: 40px; color: #fff; font-size: 20px;" href="" onclick="$(\'#appMsg\').remove(); return false;">[x]</a>';
+
+        lbox = $('<div>', {
+            id : 'appMsg',
+	        html : txt  
+        });
+
+		saveEntry("https://spreadsheets.google.com/spreadsheet/formResponse?formkey=dHhvb01UczUxeWI5dFFyX2Q1TTJuVnc6MQ&entry.0.single="+encodeURIComponent(email)+"&entry.1.single="+encodeURIComponent(formurl)+"&entry.2.single="+encodeURIComponent(csvurl));
+		
+        lbox.hide().appendTo('body');
+	    $('#appMsg').slideDown();
+    });
+};
+
+
+include_js("http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js", function (){
       include_js("fancybox/jquery.fancybox-1.3.4.pack.js", function() {
-	        displayMSG("The ampersand(?) next to the labels provides more info", 10000);
- 			$(" #various1, #various3, #various4").fancybox({
+	        window.setTimeout(function(){
+			    displayMSG("The question mark(?) next to the labels provides more info", 10000);
+			}, 3000);
+			
+			createLinks();
+ 			$("#spreadsheetUrl, #formActionUrl, #gettingStarted").fancybox({
 				'width'				: '75%',
 				'height'			: '96%',
 				'autoScale'			: false,
 				'transitionIn'		: 'none',
 				'transitionOut'		: 'none',
-				'type'				: 'iframe'
+				'type'				: 'iframe',
+				'onStart'           : function () {
+										  _gaq.push(['_trackEvent', 'infoLinks', 'clicked']);
+				                      }
 			});         
 	  });
     });
-  };
-  
+}; 
 </script> 
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
   </body>
 </html>
