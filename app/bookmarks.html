@@ -117,14 +117,16 @@ createLinks = function (formurl, csvurl) {
 },
 
 callBack = function(yql) {
-    if (!yql.query.count) {
+	var data = yql.query.results.row;
+	
+    if (typeof yql.query === 'undefined' || !yql.query.count) {
         displayMSG('No results where found!');
         return false;
     }
-    
-	var data = yql.query.results.row;
+
     createLinks(data.formurl, data.csvurl);
 },
+
 displayMSG = function (a,b) {
       var c = $("<div>",{id:"appMsg",html:a});
 	
@@ -148,6 +150,8 @@ window.onload = function() {
 			e.preventDefault();
 			
 		    var email = $('#email').val(), restQuery, query, yqlQuery;
+			
+			email = $.trim(email);
 			
 	        if (!isEmail(email) || !email) {
                 displayMSG('Invalid Email!');

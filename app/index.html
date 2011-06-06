@@ -109,6 +109,12 @@ isEmail = function (email) {
 
 isUrl = function (url) {
     var url_match = /https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w/_\.]*(\?\S+)?)?)?/;
+	
+    if (url.length < 99 || url.length > 125 || url.indexOf('https://spreadsheets.google.com/spreadsheet') === -1) {
+        displayMSG("Invalid url. Please click (?) for instructions!"); 
+        return false;		
+	}
+    
     return url_match.test(url);
 },
 
@@ -138,7 +144,7 @@ displayMSG = function (a,b) {
 		  })
 	  });
 	
-	  b ? setTimeout(function(){c.click()},b) : setTimeout(function(){c.click()},5000);
+	  b ? setTimeout(function(){c.click()},b) : setTimeout(function(){c.click()},10000);
 	  c.hide().appendTo('body').slideDown()
 },
 
@@ -148,7 +154,21 @@ createLinks = function () {
         e.preventDefault();	
 	    var formurl = $('#formurl').val(), csvurl = $('#csvurl').val(), email = $('#email').val(), txt, lbox;
 		
+		formurl = $.trim(formurl);
+		csvurl = $.trim(csvurl);
+		email = $.trim(email);
+		
 		if ($('#appMsg')) $('#appMsg').remove();
+		
+		if (csvurl.indexOf('output=csv') === -1 || csvurl.indexOf('https://spreadsheets.google.com/spreadsheet') === -1 || csvurl.length < 120 || csvurl.length > 130 ) {
+		    displayMSG("Invalid spreadsheet url, click (?) for more info!"); 
+            return;			
+		}
+		
+		if (formurl.length < 99 || formurl.length > 107 || formurl.indexOf('&amp;ifq') === -1 || formurl.indexOf('https://spreadsheets.google.com/spreadsheet') === -1) {
+		    displayMSG("Invalid action url! click (?) for more info."); 
+            return;			
+		}
 		
 		if (!isUrl(formurl) || !isUrl(csvurl) || !isEmail(email)) {
 		    displayMSG("All fields require valid input!"); 
