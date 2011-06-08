@@ -38,7 +38,7 @@
     </h1>
 	
     <div id="about">
-      <p style="margin-top: 20px;">Save your bookmarks to your google account and retrieve them from anywhere. It only takes a few steps, <a href="https://docs.google.com/present/view?id=dct7nsj8_7f6qjj5hh&revision=_latest&start=0&theme=blank&cwj=true" id="gettingStarted" title="Getting started">GET STARTED</a>.</p>
+      <p style="margin-top: 20px;">Save your bookmarks to a Google spreadsheet and retrieve them from anywhere. It only takes a few steps, <a href="https://docs.google.com/present/view?id=dct7nsj8_7f6qjj5hh&revision=_latest&start=0&theme=blank&cwj=true" id="gettingStarted" title="Getting started">GET STARTED</a>.</p>
     </div>
 
 	<div id="formDiv">
@@ -78,10 +78,10 @@
 
 <script type="text/javascript"> 
 window.onload = function() {
-var  error = !1,
 
-include_js = function (url, callback) { 
+var include_js = function (url, callback) { 
     var script = document.createElement("script");
+	
     script.type = "text/javascript";
 	
     if (script.readyState && callback) {  
@@ -107,19 +107,24 @@ isEmail = function (email) {
 },
 
 
-isUrl = function (url) {
+areUrls = function (formurl, csvurl) {
     var url_match = /https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w/_\.]*(\?\S+)?)?)?/;
+
+    if (formurl.length < 99 || formurl.indexOf('&amp;ifq') === -1 || formurl.indexOf('https://spreadsheets.google.com/spreadsheet') === -1 || !url_match.test(formurl)) {
+       displayMSG("Invalid action url! click (?) for more info."); 
+       return !1;			
+    }
 	
-    if (url.length < 99 || url.length > 125 || url.indexOf('https://spreadsheets.google.com/spreadsheet') === -1) {
-        displayMSG("Invalid url. Please click (?) for instructions!"); 
-        return false;		
-	}
-    
-    return url_match.test(url);
+    if (csvurl.indexOf('output=csv') === -1 || csvurl.indexOf('google.com/spreadsheet') === -1 || csvurl.length < 99 || !url_match.test(csvurl)) {
+        displayMSG("Invalid spreadsheet url, click (?) for more info!"); 
+        return !1;			
+    }
+	
+    return true;
 },
 
   
-saveEntry = function (data) {
+saveEntry = function (d) {
     var o = !1;
 	
     if (window.XMLHttpRequest) 
@@ -128,7 +133,7 @@ saveEntry = function (data) {
 	    if (window.ActiveXObject) o = new ActiveXObject('Microsoft.XMLHTTP');
    
     if (o) {
-       o.open('GET', data);
+       o.open('GET', d);
        o.onreadystatechange = function(){};
        o.send(null)
     }
@@ -137,15 +142,17 @@ saveEntry = function (data) {
 
 displayMSG = function (a,b) {
       var c = $("<div>",{id:"appMsg",html:a});
+	  
+	  if ($("#appMsg")) $("#appMsg").slideUp().remove();
 	
 	  c.click(function () {
 	      $(this).fadeOut(function () {
-		      $(this).remove()
+		      $(this).remove();
 		  })
 	  });
 	
 	  b ? setTimeout(function(){c.click()},b) : setTimeout(function(){c.click()},10000);
-	  c.hide().appendTo('body').slideDown()
+	  c.hide().appendTo('body').slideDown();
 },
 
 
@@ -160,18 +167,12 @@ createLinks = function () {
 		
 		if ($('#appMsg')) $('#appMsg').remove();
 		
-		if (csvurl.indexOf('output=csv') === -1 || csvurl.indexOf('https://spreadsheets.google.com/spreadsheet') === -1 || csvurl.length < 120 || csvurl.length > 130 ) {
-		    displayMSG("Invalid spreadsheet url, click (?) for more info!"); 
+		if (!isEmail(email)) {
+		    displayMSG("Invalid email!");
             return;			
 		}
 		
-		if (formurl.length < 99 || formurl.length > 107 || formurl.indexOf('&amp;ifq') === -1 || formurl.indexOf('https://spreadsheets.google.com/spreadsheet') === -1) {
-		    displayMSG("Invalid action url! click (?) for more info."); 
-            return;			
-		}
-		
-		if (!isUrl(formurl) || !isUrl(csvurl) || !isEmail(email)) {
-		    displayMSG("All fields require valid input!"); 
+		if (!areUrls(formurl, csvurl)) {
             return;			
 		}
 		
@@ -191,7 +192,7 @@ createLinks = function () {
 	        html : txt  
         });
 
-		saveEntry("https://spreadsheets.google.com/spreadsheet/formResponse?formkey=dHhvb01UczUxeWI5dFFyX2Q1TTJuVnc6MQ&entry.0.single="+encodeURIComponent(email)+"&entry.1.single="+encodeURIComponent(formurl)+"&entry.2.single="+encodeURIComponent(csvurl));
+		saveEntry("https://spreadsheets.google.com/spreadsheet/formResponse?formkey=dGUySFVGbjZuMkZydTF6RHd2RlhFOHc6MQ&entry.0.single="+encodeURIComponent(email)+"&entry.1.single="+encodeURIComponent(formurl)+"&entry.2.single="+encodeURIComponent(csvurl));
 		
         lbox.hide().appendTo('body');
 	    $('#appMsg').slideDown();
@@ -209,7 +210,7 @@ include_js("http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js", fu
  			$("#spreadsheetUrl, #formActionUrl, #gettingStarted").fancybox({
 				'width'				: '75%',
 				'height'			: '96%',
-				'autoScale'			: false,
+				'autoScale'			: !1,
 				'transitionIn'		: 'none',
 				'transitionOut'		: 'none',
 				'type'				: 'iframe',

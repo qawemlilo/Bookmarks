@@ -31,6 +31,8 @@
 </head>	
 <body>
 <div id="container">
+    <img src="images/loading.gif" style="position: absolute; top: 15px; margin-left: 200px; display:none;" id="loading" />
+	
     <a href="https://github.com/qawemlilo/Bookmarks" target="_blank" style="position: absolute; top:0; right: 0;" onclick="_gaq.push(['_trackEvent', 'Fork', 'Clicked']); return true;"><img src="images/fork.png" /></a>
 	<g:plusone size="standard" count="true"></g:plusone>
     <h1>
@@ -48,7 +50,7 @@
               <label for="email" style="width:60px; text-align: left">
 			    Email
 			  </label>
-			  <input onclick="this.value='';" name="email" id="email" class="txt"  style="padding:6px 0px 6px 0px" type="text"> <input value="View boomarks" style="padding:5px" id="view" name="view" type="submit" class="button gray" /> 
+			  <input onclick="this.value='';" name="email" id="email" class="txt" value="qawemlilo@gmail.com" style="padding:6px 0px 6px 0px" type="text"> <input value="View boomarks" style="padding:5px" id="view" name="view" type="submit" class="button gray" /> 
 			</div>
         </fieldset>	
       </form> 
@@ -107,6 +109,8 @@ createLinks = function (formurl, csvurl) {
 
         txt += '<a style="margin-left: 40px; color: #fff; font-size: 20px;" href="" onclick="$(\'#appMsg\').remove(); return false;">[x]</a>';
 
+		if ($("#appMsg")) $("#appMsg").slideUp().remove();
+		
         lbox = $('<div>', {
             id : 'appMsg',
 	        html : txt  
@@ -116,18 +120,23 @@ createLinks = function (formurl, csvurl) {
 	    $('#appMsg').slideDown();
 },
 
-callBack = function(yql) {
-	var data = yql.query.results.row;
+callBack = function(yql) {	
+
+	$('#loading').hide();
 	
     if (typeof yql.query === 'undefined' || !yql.query.count) {
         displayMSG('No results where found!');
         return false;
     }
+	
+	var data = yql.query.results.row;
 
     createLinks(data.formurl, data.csvurl);
 },
 
 displayMSG = function (a,b) {
+      if ($("#appMsg")) $("#appMsg").slideUp().remove();
+	  
       var c = $("<div>",{id:"appMsg",html:a});
 	
 	  c.click(function () {
@@ -158,8 +167,10 @@ window.onload = function() {
                 return false;
             }
 			
+			$('#loading').show();
+			
             restQuery = 'http://query.yahooapis.com/v1/public/yql?q=',
-			query = 'select * from csv where url="https://spreadsheets.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=0AqJ6uSJSd-kSdHhvb01UczUxeWI5dFFyX2Q1TTJuVnc&output=csv" and columns="time,email,formurl,csvurl" and email="'+ email +'"', 
+			query = 'select * from csv where url="https://spreadsheets.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=0AqJ6uSJSd-kSdGUySFVGbjZuMkZydTF6RHd2RlhFOHc&output=csv" and columns="time,email,formurl,csvurl" and email="'+ email +'"', 
             yqlQuery = restQuery + encodeURIComponent(query)  + '&format=json&callback=callBack'; 
             include_js(yqlQuery);  			
 	    })		
