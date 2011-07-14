@@ -114,7 +114,7 @@ var HACKER_BOOKMARKS = {
 		
 	        mystr = objKey.split("_");
 			
-            temp_str = '<a class="" style="color: #000; font-family: "Myriad Pro",Arial,Helvetica,sans-serif;" href="javascript:(function(x) { var el = document.getElementById(x);el.style.display !== \'none\' ? el.style.display = \'none\' : el.style.display = \'\';})(\''+ objKey +'\');"><strong>' + mystr[1] + ' ' +mystr[0] + ' ago</strong></a><br />'
+            temp_str = '<a class="" style="color: #000; font-family: "Myriad Pro",Arial,Helvetica,sans-serif;" href="javascript:openHBMs(\''+ objKey +'\');" onmouseover="openHBMs(\''+ objKey +'\');"><strong>' + mystr[1] + ' ' +mystr[0] + ' ago</strong></a><br />'
 		    temp_str += '<div style="line-height: 140%; padding-left: 5px; display: none; color: white; margin-bottom: 10px;" id="'+ objKey +'">';  
 		    
 			len = temp[objKey].length;
@@ -191,7 +191,6 @@ var HACKER_BOOKMARKS = {
 	    },3000);
     }	
 };
-
  // password-like call back function to avoid over-writing of any functions
  window.callBack_89cvc7rfr742 = function (o) {	
       var elem = document.getElementById('hacker_bookmark_panel'), bmHTML;  
@@ -218,3 +217,8 @@ var HACKER_BOOKMARKS = {
   
   HACKER_BOOKMARKS.getBookmarks(g_url, "callBack_89cvc7rfr742");
 })(googledocUrl_367342iurw34);
+
+function openHBMs(x) {
+    var el = document.getElementById(x);
+	(el.style.display !== 'none') ? el.style.display = 'none' : el.style.display = '';
+}
