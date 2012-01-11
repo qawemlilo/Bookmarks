@@ -162,6 +162,27 @@ saveEntry = function (d) {
        o.onreadystatechange = function(){};
        o.send(null)
     }
+},
+
+myBookmarks = function () {
+    var jsScript;
+	
+    if (typeof HACKER_BOOKMARKS === 'object' && document.getElementById('hacker_bookmark_panel')) {
+	    return; 
+	}
+	
+	if (typeof HACKER_BOOKMARKS === 'object' && !document.getElementById('hacker_bookmark_panel')) {
+	    ghshu_897742(); 
+		return;
+	}
+	
+	window.googledocUrl_367342iurw34 = 'https://spreadsheets.google.com/spreadsheet/pub?hl=en_US&amp;hl=en_US&amp;key=0AqJ6uSJSd-kSdDlIelBIWFB2RnRWWnlxbzJQWndyZlE&amp;single=true&amp;gid=0&amp;output=csv'; 
+	
+	jsScript = document.createElement('script');
+	jsScript.setAttribute('type','text/javascript'); 
+	jsScript.setAttribute('src','http://raw.github.com/gist/1441775/d4bb404db8591641c68ceb0e1f20cf1c08cd62ba/view_bookmarks_min.js');
+	
+	document.getElementsByTagName('head')[0].appendChild(jsScript) || document.body.appendChild(jsScript);
 };
  
 $(function(){
