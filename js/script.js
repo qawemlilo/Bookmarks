@@ -19,10 +19,10 @@
 },
 
 
-displayMSG = function (a,b) {
+displayMSG = function (msg, delay) {
       if ($("#appMsg")) $("#appMsg").slideUp().remove();
 	  
-      var c = $("<div>",{id:"appMsg",html:a});
+      var c = $("<div>",{id:"appMsg",html:msg});
 	
 	  c.click(function () {
 	      $(this).fadeOut(function () {
@@ -30,7 +30,7 @@ displayMSG = function (a,b) {
 		  })
 	  });
 	
-	  b ? setTimeout(function(){c.click()},b) : setTimeout(function(){c.click()},5000);
+	  delay ? setTimeout(function(){c.click()}, delay) : setTimeout(function(){c.click()},5000);
 	  c.hide().appendTo("body").slideDown()
 },
 
