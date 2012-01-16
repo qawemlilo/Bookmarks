@@ -184,7 +184,7 @@
         });
     };
     
-    win.callBack = function(yql) {
+    win.callBack = function (yql) {
         $('#loading').hide();
         
         if (typeof yql.query === 'undefined' || !yql.query.count) {
@@ -220,7 +220,9 @@
             query = 'select * from csv where url="https://spreadsheets.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=0AqJ6uSJSd-kSdGUySFVGbjZuMkZydTF6RHd2RlhFOHc&output=csv" and columns="time,email,formurl,csvurl" and email="'+ email +'"'; 
             yqlQuery = restQuery + encodeURIComponent(query)  + '&format=json&callback=callBack';
             
-            include_js(yqlQuery);
+            include_js(yqlQuery, function () {
+                $('#loading').hide();  
+            });
         });
         
         $('#bkmarks').click(function(){ 
