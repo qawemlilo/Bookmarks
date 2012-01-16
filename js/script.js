@@ -1,5 +1,4 @@
 ﻿(function(win, $) {
-"use strict";
     var include_js = function (url, callback) {
         var script = document.createElement("script");
         script.type = "text/javascript";
@@ -185,7 +184,7 @@
     };
     
     win.callBack = function (yql) {
-        $('#loading').hide();
+        this.jQuery("#loading").hide();
         
         if (typeof yql.query === 'undefined' || !yql.query.count) {
             displayMSG('No results where found!');
