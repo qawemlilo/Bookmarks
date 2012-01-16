@@ -50,7 +50,7 @@ isUrl = function (url) {
 areUrls = function (formurl, csvurl) {
     var url_match = /https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w/_\.]*(\?\S+)?)?)?/;
 
-    if (formurl.length < 99 || formurl.indexOf('&amp;ifq') === -1 || formurl.indexOf('https://spreadsheets.google.com/spreadsheet') === -1 || !url_match.test(formurl)) {
+    if (formurl.length < 99 || formurl.indexOf('&amp;ifq') === -1 || formurl.indexOf('google.com/spreadsheet') === -1 || !url_match.test(formurl)) {
        displayMSG("Invalid action url! click (?) for more info."); 
        return !1;			
     }
