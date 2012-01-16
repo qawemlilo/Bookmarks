@@ -1,4 +1,4 @@
-﻿(function ($) {
+﻿(function(win, $) {
     var include_js = function (url, callback) {
         var script = document.createElement("script");
         script.type = "text/javascript";
@@ -182,6 +182,22 @@
             $('#appMsg').slideDown();
         });
     };
+    
+    win.callBack = function (yql) {
+        
+        if ($('#loading')) {
+            $('#loading').hide();
+        }
+        
+        if (typeof yql.query === 'undefined' || !yql.query.count) {
+            displayMSG('No results where found!');
+            return false;
+        }
+        
+        var data = yql.query.results.row;
+        
+        createLinks(data.formurl, data.csvurl);
+    };
 
 /*
     The code below is run when the dom has loaded.    
@@ -234,20 +250,4 @@
             'onStart': function () {}
         });
     });        
-}(jQuery));
-
-var callBack = function (yql) {
-    var data;
-    
-    $('#loading').hide();
-    
-    console.log(!!$('#loading'));
-    
-    if (typeof yql.query === 'undefined' || !yql.query.count) {
-        displayMSG('No results where found!');
-        return false;
-    }
-    
-    data = yql.query.results.row;
-    createLinks(data.formurl, data.csvurl);
-};
+}(window, jQuery));
