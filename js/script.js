@@ -184,7 +184,7 @@
     };
     
     win.callBack = function (yql) {
-        this.jQuery("#loading").hide();
+        document.getElementById("loading").style.display = 'none';
         
         if (typeof yql.query === 'undefined' || !yql.query.count) {
             displayMSG('No results where found!');
