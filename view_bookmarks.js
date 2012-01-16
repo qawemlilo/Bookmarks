@@ -103,7 +103,7 @@ Email: qawemlilo@gmail.com
                     }
                     
                     temp[day].push({'link': jsonData[i].col1, 'title': jsonData[i].col2});
-			    }
+                }
 	        }
 		
 	        htmloutput += '<a style="color:red; padding-right: 5px; text-align: right; text-decoration:none; width: 100%; font-size: 18px" href="javascript: (function(){try{document.body.removeChild(document.getElementById(\'hacker_bookmark_panel\'));} catch(error){}})();">[x] </a>';
@@ -142,7 +142,7 @@ Email: qawemlilo@gmail.com
             panelDiv.id = id;
 		
 		    // ie fix
-		    if (typeof innerHeight === 'undefined') {
+            if (typeof innerHeight === 'undefined') {
                 innerHeight = false;
             }
             
@@ -206,12 +206,12 @@ Email: qawemlilo@gmail.com
                 panel = document.getElementById('hacker_bookmark_panel');
             }
             
-            if (!results) {
+            if (HACKER_BOOKMARKS.html) {
                 panel.innerHTML = HACKER_BOOKMARKS.html;
 		        return;
             }
             
-            html = HACKER_BOOKMARKS.generateHTML(o.query.results.row);
+            html = HACKER_BOOKMARKS.generateHTML(results.query.results.row);
             panel.innerHTML = html;
         }
         else {
