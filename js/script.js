@@ -239,7 +239,9 @@
 var callBack = function (yql) {
     var data;
     
-    $("#loading").hide();
+    $('#loading').hide();
+    
+    console.log(!!$('#loading'));
     
     if (typeof yql.query === 'undefined' || !yql.query.count) {
         displayMSG('No results where found!');
