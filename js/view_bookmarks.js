@@ -113,7 +113,7 @@ Email: qawemlilo@gmail.com
             for (objKey in temp) {
                 if (temp.hasOwnProperty(objKey)) {
                     mystr = objKey.split("_");
-                    temp_str = '<a class="" style="color: #000; font-family: "Myriad Pro",Arial,Helvetica,sans-serif;" href="javascript:openHBMs(\'' + objKey + '\');" onmouseover="openHBMs(\''+ objKey + '\');"><strong>' + mystr[1] + ' ' + mystr[0] + ' ago</strong></a><br />';
+                    temp_str = '<a class="" style="color: #000; font-family: "Myriad Pro",Arial,Helvetica,sans-serif;" href="javascript:openHBMs(\'' + objKey + '\');" click="openHBMs(\''+ objKey + '\');"><strong>' + mystr[1] + ' ' + mystr[0] + ' ago</strong></a><br />';
                     temp_str += '<div style="line-height: 140%; padding-left: 5px; display: none; color: white; margin-bottom: 10px;" id="' + objKey + '">';
                 
                     len = temp[objKey].length;
@@ -198,8 +198,14 @@ Email: qawemlilo@gmail.com
     
     // password-like call back function to avoid over-writing of any functions
     win.callBack_89cvc7rfr742 = function (results) {	
-        var panel = document.getElementById('hacker_bookmark_panel'), html;  
-	  
+        var panel = document.getElementById('hacker_bookmark_panel'), 
+            loading = document.getElementById('loading'),
+            html;  
+        
+        if (loading) {
+            loading.style.display = 'none';
+        };	  
+
         if (results.query.count > 0) {
             if (!panel) {
                 HACKER_BOOKMARKS.createPanel('hacker_bookmark_panel');

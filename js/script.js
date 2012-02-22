@@ -70,7 +70,7 @@
     areUrls = function (formurl, csvurl) {
         var url_match = /https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w/_\.]*(\?\S+)?)?)?/;
         
-        if (formurl.length < 99 || formurl.indexOf('&amp;ifq') === -1 || formurl.indexOf('google.com/spreadsheet') === -1 || !url_match.test(formurl)) {
+        if (formurl.length < 80 || formurl.indexOf('&amp;ifq') === -1 || formurl.indexOf('google.com/spreadsheet') === -1 || !url_match.test(formurl)) {
             displayMSG("Invalid action url! click (?) for more info.");
             return false;
         }
@@ -108,9 +108,9 @@
             return;
         }
         
-        txt =  "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof googleFormActionUrl_367342iurw34!=='undefined') return;var jsScript=document.createElement('script');window.googleFormActionUrl_367342iurw34='" + formurl + "';jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src', 'http://raw.github.com/gist/1441780/6a4da66e07b81cf1bc4625e2c2ac8f9c47fa3357/add_bookmark_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript);})();\">Bookmarks this!</a>";
+        txt =  "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof googleFormActionUrl_367342iurw34!=='undefined') return;var jsScript=document.createElement('script');window.googleFormActionUrl_367342iurw34='" + formurl + "';jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src', 'http://www.rflab.co.za/scripts/add_bookmark_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript);})();\">Bookmarks this!</a>";
         
-        txt += "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof HACKER_BOOKMARKS === 'object' && document.getElementById('hacker_bookmark_panel')) return; if(typeof HACKER_BOOKMARKS === 'object' && !document.getElementById('hacker_bookmark_panel')){ghshu_897742(); return;} window.googledocUrl_367342iurw34='" + csvurl + "'; var jsScript=document.createElement('script'); jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src','http://raw.github.com/gist/1441775/2793c1748ddf314e3412d38c6967b8acabd01d26/view_bookmarks_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript) || document.body.appendChild(jsScript);})();\">View Bookmarks</a>";
+        txt += "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof HACKER_BOOKMARKS === 'object' && document.getElementById('hacker_bookmark_panel')) return; if(typeof HACKER_BOOKMARKS === 'object' && !document.getElementById('hacker_bookmark_panel')){ghshu_897742(); return;} window.googledocUrl_367342iurw34='" + csvurl + "'; var jsScript=document.createElement('script'); jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src','http://www.rflab.co.za/scripts/view_bookmarks_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript) || document.body.appendChild(jsScript);})();\">View Bookmarks</a>";
         
         if ($.browser.msie)  {
             txt += "Right-click on these buttons and select Add to Favorites";
@@ -158,9 +158,9 @@
             
             formurl = formurl.substring(0, (formurl.length - 8));
             
-            txt =  "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof googleFormActionUrl_367342iurw34!=='undefined') return;var jsScript=document.createElement('script');window.googleFormActionUrl_367342iurw34='" + formurl + "';jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src', 'http://raw.github.com/gist/1441780/6a4da66e07b81cf1bc4625e2c2ac8f9c47fa3357/add_bookmark_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript);})();\">Bookmarks this!</a>";
+            txt =  "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof googleFormActionUrl_367342iurw34!=='undefined') return;var jsScript=document.createElement('script');window.googleFormActionUrl_367342iurw34='" + formurl + "';jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src', 'http://www.rflab.co.za/scripts/add_bookmark_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript);})();\">Bookmarks this!</a>";
             
-            txt += "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof HACKER_BOOKMARKS === 'object' && document.getElementById('hacker_bookmark_panel')) return; if(typeof HACKER_BOOKMARKS === 'object' && !document.getElementById('hacker_bookmark_panel')){ghshu_897742(); return;} window.googledocUrl_367342iurw34='" + csvurl + "'; var jsScript=document.createElement('script'); jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src','http://raw.github.com/gist/1441775/2793c1748ddf314e3412d38c6967b8acabd01d26/view_bookmarks_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript) || document.body.appendChild(jsScript);})();\">View Bookmarks</a>";
+            txt += "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof HACKER_BOOKMARKS === 'object' && document.getElementById('hacker_bookmark_panel')) return; if(typeof HACKER_BOOKMARKS === 'object' && !document.getElementById('hacker_bookmark_panel')){ghshu_897742(); return;} window.googledocUrl_367342iurw34='" + csvurl + "'; var jsScript=document.createElement('script'); jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src','http://www.rflab.co.za/scripts/view_bookmarks_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript) || document.body.appendChild(jsScript);})();\">View Bookmarks</a>";
             
             if ($.browser.msie) {
                 txt += "Right-click on these buttons and select Add to Favorites";
