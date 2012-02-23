@@ -19,5 +19,5 @@ A hacker's bookmarks is written in 100% JavaScript and stores all bookmarks in a
 
 The most wonderful thing about this app is that it does not require a cent to set up!    
 **Site Hosting:** Github (free)   
-**Data Storage:* Google Docs Spreadsheet (free)   
+**Data Storage:** Google Docs Spreadsheet (free)   
 **Data Retrieval:** Yahoo! YQL (free)   
