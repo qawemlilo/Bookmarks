@@ -18,6 +18,6 @@ After much deliberation I finally decided that if i needed a tailored bookmarkin
 A hacker's bookmarks is written in 100% JavaScript and stores all bookmarks in a Google Docs Spreadsheet. To retrieve data, the application creates a YQL query that returns data in JSONP format.
 
 The most wonderful thing about this app is that it does not require a cent to set up!    
-*Site Hosting:* Github (free)   
-*Data Storage:* Google Docs Spreadsheet (free)   
-*Data Retrieval:* Yahoo! YQL (free)   
+**Site Hosting:** Github (free)   
+**Data Storage:* Google Docs Spreadsheet (free)   
+**Data Retrieval:** Yahoo! YQL (free)   
