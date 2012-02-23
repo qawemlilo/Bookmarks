@@ -166,7 +166,7 @@
                 txt += "Right-click on these buttons and select Add to Favorites";
             }
             else {
-                txt += "Drag these buttons to your bookmarks bar"; 
+                txt += "Drag these buttons to your bookmarks toolbar"; 
             }
             
             txt += '<a style="margin-left: 40px; color: #fff; font-size: 20px;" href="" onclick="$(\'#appMsg\').remove(); return false;">[x]</a>';
