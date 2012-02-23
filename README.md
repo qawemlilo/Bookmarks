@@ -13,11 +13,11 @@ Googling the web brought up a number of bookmarking services like Netvouz, Ma.gn
 
 After much deliberation I finally decided that if i needed a tailored bookmarking service, i was going to build it myself(troubles of being a self-proclaimed hacker) - here is my solution.
 
-## THE SOLUTION
+### THE SOLUTION
 
 A hacker's bookmarks is written in 100% JavaScript and stores all bookmarks in a Google Docs Spreadsheet. To retrieve data, the application creates a YQL query that returns data in JSONP format.
 
-The most wonderful thing about this app is that it does not require a cent to set up! 
-Site Hosting: Github (free), 
-Data Storage: Google Docs Spreadsheet (free)
-Data Retrieval: Yahoo! YQL (free)
+The most wonderful thing about this app is that it does not require a cent to set up!    
+Site Hosting: Github (free)   
+Data Storage: Google Docs Spreadsheet (free)   
+Data Retrieval: Yahoo! YQL (free)   
