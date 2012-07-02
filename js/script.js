@@ -70,12 +70,12 @@
     areUrls = function (formurl, csvurl) {
         var url_match = /https?:\/\/([-\w\.]+)+(:\d+)?(\/([\w/_\.]*(\?\S+)?)?)?/;
         
-        if (formurl.length < 80 || formurl.indexOf('&amp;ifq') === -1 || formurl.indexOf('google.com/spreadsheet') === -1 || !url_match.test(formurl)) {
+        if (formurl.indexOf('&amp;ifq') === -1 || formurl.indexOf('google.com/spreadsheet') === -1 || !url_match.test(formurl)) {
             displayMSG("Invalid action url! click (?) for more info.");
             return false;
         }
         
-        if (csvurl.indexOf('output=csv') === -1 || csvurl.indexOf('google.com/spreadsheet') === -1 || csvurl.length < 99 || !url_match.test(csvurl)) {
+        if (csvurl.indexOf('output=csv') === -1 || csvurl.indexOf('google.com/spreadsheet') === -1 || !url_match.test(csvurl)) {
             displayMSG("Invalid spreadsheet url, click (?) for more info!"); 
             return false;
         }
