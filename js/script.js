@@ -108,9 +108,9 @@
             return;
         }
         
-        txt =  "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof googleFormActionUrl_367342iurw34!=='undefined') return;var jsScript=document.createElement('script');window.googleFormActionUrl_367342iurw34='" + formurl + "';jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src', 'http://www.rflab.co.za/scripts/add_bookmark_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript);})();\">Bookmarks this!</a>";
+        txt =  "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof googleFormActionUrl_367342iurw34!=='undefined') return;var jsScript=document.createElement('script');window.googleFormActionUrl_367342iurw34='" + formurl + "';jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src', 'http://apps.rflab.co.za/scripts/add_bookmark_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript);})();\">Bookmarks this!</a>";
         
-        txt += "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof HACKER_BOOKMARKS === 'object' && document.getElementById('hacker_bookmark_panel')) return; if(typeof HACKER_BOOKMARKS === 'object' && !document.getElementById('hacker_bookmark_panel')){ghshu_897742(); return;} window.googledocUrl_367342iurw34='" + csvurl + "'; var jsScript=document.createElement('script'); jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src','http://www.rflab.co.za/scripts/view_bookmarks_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript) || document.body.appendChild(jsScript);})();\">View Bookmarks</a>";
+        txt += "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof HACKER_BOOKMARKS === 'object' && document.getElementById('hacker_bookmark_panel')) return; if(typeof HACKER_BOOKMARKS === 'object' && !document.getElementById('hacker_bookmark_panel')){ghshu_897742(); return;} window.googledocUrl_367342iurw34='" + csvurl + "'; var jsScript=document.createElement('script'); jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src','http://apps.rflab.co.za/scripts/view_bookmarks_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript) || document.body.appendChild(jsScript);})();\">View Bookmarks</a>";
         
         if ($.browser.msie)  {
             txt += "Right-click on these buttons and select Add to Favorites";
@@ -158,9 +158,9 @@
             
             formurl = formurl.substring(0, (formurl.length - 8));
             
-            txt =  "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof googleFormActionUrl_367342iurw34!=='undefined') return;var jsScript=document.createElement('script');window.googleFormActionUrl_367342iurw34='" + formurl + "';jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src', 'http://www.rflab.co.za/scripts/add_bookmark_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript);})();\">Bookmarks this!</a>";
+            txt =  "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof googleFormActionUrl_367342iurw34!=='undefined') return;var jsScript=document.createElement('script');window.googleFormActionUrl_367342iurw34='" + formurl + "';jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src', 'http://apps.rflab.co.za/scripts/add_bookmark_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript);})();\">Bookmarks this!</a>";
             
-            txt += "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof HACKER_BOOKMARKS === 'object' && document.getElementById('hacker_bookmark_panel')) return; if(typeof HACKER_BOOKMARKS === 'object' && !document.getElementById('hacker_bookmark_panel')){ghshu_897742(); return;} window.googledocUrl_367342iurw34='" + csvurl + "'; var jsScript=document.createElement('script'); jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src','http://www.rflab.co.za/scripts/view_bookmarks_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript) || document.body.appendChild(jsScript);})();\">View Bookmarks</a>";
+            txt += "<a class=\"bookmarkButton\" href=\"javascript:(function(){if(typeof HACKER_BOOKMARKS === 'object' && document.getElementById('hacker_bookmark_panel')) return; if(typeof HACKER_BOOKMARKS === 'object' && !document.getElementById('hacker_bookmark_panel')){ghshu_897742(); return;} window.googledocUrl_367342iurw34='" + csvurl + "'; var jsScript=document.createElement('script'); jsScript.setAttribute('type','text/javascript'); jsScript.setAttribute('src','http://apps.rflab.co.za/scripts/view_bookmarks_min.js');document.getElementsByTagName('head')[0].appendChild(jsScript) || document.body.appendChild(jsScript);})();\">View Bookmarks</a>";
             
             if ($.browser.msie) {
                 txt += "Right-click on these buttons and select Add to Favorites";
@@ -176,7 +176,7 @@
                 html : txt
             });
             
-            saveEntry("https://spreadsheets.google.com/spreadsheet/formResponse?formkey=dGUySFVGbjZuMkZydTF6RHd2RlhFOHc6MQ&entry.0.single=" + encodeURIComponent(email) + "&entry.1.single=" + encodeURIComponent(formurl) + "&entry.2.single=" + encodeURIComponent(csvurl));
+            saveEntry("https://docs.google.com/spreadsheet/formResponse?formkey=dEVHR2U2eFp2U2lxTm9GSmVZbHNsSkE6MQ&entry.0.single=" + encodeURIComponent(email) + "&entry.1.single=" + encodeURIComponent(formurl) + "&entry.2.single=" + encodeURIComponent(csvurl));
             
             lbox.hide().appendTo('body');
             $('#appMsg').slideDown();
@@ -219,7 +219,7 @@
             $('#loading').show();
             
             restQuery = 'http://query.yahooapis.com/v1/public/yql?q=';
-            query = 'select * from csv where url="https://spreadsheets.google.com/spreadsheet/pub?hl=en_US&hl=en_US&key=0AqJ6uSJSd-kSdGUySFVGbjZuMkZydTF6RHd2RlhFOHc&output=csv" and columns="time,email,formurl,csvurl" and email="'+ email +'"'; 
+            query = 'select * from csv where url="https://docs.google.com/spreadsheet/pub?key=0AqJ6uSJSd-kSdEVHR2U2eFp2U2lxTm9GSmVZbHNsSkE&output=csv" and columns="time,email,formurl,csvurl" and email="'+ email +'"'; 
             yqlQuery = restQuery + encodeURIComponent(query)  + '&format=json&callback=callBack';
             
             include_js(yqlQuery, function () {
