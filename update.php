@@ -1,1 +1,1 @@
-<?php `git pull origin gh-pages``git checkout -f gh-pages`
+<?php `git pull``git checkout -f gh-pages`
