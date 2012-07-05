@@ -1,3 +1,3 @@
 <?php 
-`git pull origin gh-pages`
+`git pull`
 `git checkout -f gh-pages`
