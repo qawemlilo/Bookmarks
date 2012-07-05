@@ -1,4 +1,4 @@
-# A Hacker's Bookmarks
+# A Hacker's Bookmarks - weekend project
 
 ### The situation
 
